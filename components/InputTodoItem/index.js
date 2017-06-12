@@ -10,8 +10,10 @@ class InputTodoItem extends Component {
 
     handleKeyPress = (e) => {
         if (e.key === 'Enter') {
-            this.props.addTodoItem(this.refs.EnteredTodo.value);
-            this.refs.EnteredTodo.value = '';
+            if (this.refs.EnteredTodo.value !== '') {
+                this.props.addTodoItem(this.refs.EnteredTodo.value);
+                this.refs.EnteredTodo.value = '';
+            };
         }
     };
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import TodoItem from '../TodoItem/index';
+import './styles.css';
 
 class TodoList extends Component {
 
@@ -13,7 +14,7 @@ class TodoList extends Component {
             <ul>
                 {
                     this.props.todos.map(item => {
-                        return <TodoItem key={item.date} todo={ item } />
+                        return <TodoItem key={item.keyDate} todo={ item } />
                     })
                 }
             </ul>

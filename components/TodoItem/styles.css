@@ -1,0 +1,17 @@
+.todo {
+    margin: 2% 0%;
+}
+
+.todo-text {
+    margin: 0%;
+    padding: 0%;
+}
+
+.todo-creation-date {
+    font-size: small;
+    font-style: italic;
+}
+
+hr {
+    width: 70%;
+}

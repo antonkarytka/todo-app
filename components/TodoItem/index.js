@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './styles.css';
+
 class TodoItem extends Component {
 
     constructor(props) {
@@ -7,10 +9,17 @@ class TodoItem extends Component {
     }
 
     render() {
+        const todoText = this.props.todo.text;
+        const todoCreationDate = this.props.todo.creationDate;
         return (
-            <li>{ this.props.todo.text } : {this.props.todo.date}</li>
-        );
+        <div className="todo">
+            <hr/>
+            <li className="todo-text">{ todoText }</li>
+            <h7 className="todo-creation-date">{ todoCreationDate }</h7>
+        </div>
+    );
     }
-}
+    }
 
-export default TodoItem;
+    export default TodoItem;
+

@@ -17,7 +17,8 @@ class App extends Component {
         const time = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
         todos.push({
             text: value,
-            date: `${time}, ${date.toDateString()}`
+            creationDate: `${time}, ${date.toDateString()}`,
+            keyDate: Date.now()
         });
         this.setState({ todos: todos });
     }
