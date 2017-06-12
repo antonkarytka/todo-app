@@ -30,3 +30,8 @@ hr {
     font-size: small;
     font-style: italic;
 }
+
+.line-through-text {
+    text-decoration: line-through;
+    color: crimson;
+}

@@ -10,7 +10,7 @@ class TodoList extends Component {
             <ul>
                 {
                     this.props.todos.map(item => {
-                        return <TodoItem key={ item.keyDate } todo={ item } removeTodoItem={ this.props.removeTodoItem } />
+                        return <TodoItem key={ item.keyDate } todo={ item } checkTodoItem={ this.props.checkTodoItem } removeTodoItem={ this.props.removeTodoItem } />
                     })
                 }
             </ul>

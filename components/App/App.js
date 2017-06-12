@@ -11,21 +11,40 @@ class App extends Component {
         this.state = { todos: [] }
     }
 
-    addTodoItem(value) {
+    addTodoItem(todoText) {
         const todos = this.state.todos;
         const date = new Date();
         const time = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
         todos.push({
-            text: value,
+            text: todoText,
+            lineThroughText: null,
             creationDate: `${time}, ${date.toDateString()}`,
             keyDate: Date.now()
         });
         this.setState({ todos: todos });
     }
 
+    checkTodoItem(checked, uniqueCreationDate) {
+        const todos = this.state.todos;
+        if (checked) {
+            todos.map(todo => {
+                if (todo.keyDate === uniqueCreationDate) {
+                    todo.lineThroughText = 'line-through-text';
+                }
+            });
+        } else {
+            todos.map(todo => {
+                if (todo.keyDate === uniqueCreationDate) {
+                    todo.lineThroughText = null;
+                }
+            });
+        }
+        this.setState({ todos: todos });
+    }
 
     removeTodoItem(uniqueCreationDate) {
         const todos = this.state.todos;
+
         todos.map(todo => {
            if (todo.keyDate === uniqueCreationDate) {
                const deletionIndex = todos.indexOf(todo);
@@ -43,7 +62,7 @@ class App extends Component {
                     <h1 className="App-title">Your TODOs</h1>
                 </div>
                 <InputTodoItem addTodoItem={ this.addTodoItem.bind(this) }/>
-                <TodoList todos={ this.state.todos } removeTodoItem={ this.removeTodoItem.bind(this) }/>
+                <TodoList todos={ this.state.todos } checkTodoItem={ this.checkTodoItem.bind(this) } removeTodoItem={ this.removeTodoItem.bind(this) }/>
             </div>
         );
     }

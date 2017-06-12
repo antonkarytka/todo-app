@@ -10,6 +10,7 @@ class TodoItem extends Component {
 
     render() {
         const todoText = this.props.todo.text;
+        const lineThroughText = this.props.todo.lineThroughText;
         const todoCreationDate = this.props.todo.creationDate;
         const todoKeyData = this.props.todo.keyDate;
 
@@ -20,8 +21,8 @@ class TodoItem extends Component {
                     <table>
                         <tbody>
                         <tr>
-                            <td className="todo-check"><input type="checkbox"/></td>
-                            <td className="todo-text">{ todoText }</td>
+                            <td className="todo-check"><input ref="checkTodo" type="checkbox" onClick={ () => { this.props.checkTodoItem(this.refs.checkTodo.checked, todoKeyData) } }/></td>
+                            <td className={`todo-text ${lineThroughText}`}>{ todoText }</td>
                             <td className="todo-delete"><input type="checkbox" onClick={ () => { this.props.removeTodoItem(todoKeyData) } }/></td>
                         </tr>
                         <tr>
@@ -33,7 +34,7 @@ class TodoItem extends Component {
             </div>
         );
     }
-    }
+}
 
-    export default TodoItem;
+export default TodoItem;
 
