@@ -1,17 +1,32 @@
-.todo {
-    margin: 2% 0%;
-}
-
-.todo-text {
-    margin: 0%;
-    padding: 0%;
-}
-
-.todo-creation-date {
-    font-size: small;
-    font-style: italic;
+table {
+    width: 70%;
+    margin: 0 auto;
+    table-layout: fixed;
 }
 
 hr {
     width: 70%;
+}
+
+.todo {
+    margin: 2% 0%;
+}
+
+.todo-check {
+    width: 10%;
+}
+
+.todo-text {
+    width: 50%;
+    word-wrap: break-word;
+}
+
+.todo-delete {
+    width: 10%;
+}
+
+.todo-creation-date {
+    padding-top: 2%;
+    font-size: small;
+    font-style: italic;
 }

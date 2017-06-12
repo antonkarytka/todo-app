@@ -23,6 +23,18 @@ class App extends Component {
         this.setState({ todos: todos });
     }
 
+
+    removeTodoItem(uniqueCreationDate) {
+        const todos = this.state.todos;
+        todos.map(todo => {
+           if (todo.keyDate === uniqueCreationDate) {
+               const deletionIndex = todos.indexOf(todo);
+               todos.splice(deletionIndex, 1);
+           }
+        });
+        this.setState({ todos: todos });
+    }
+
     render() {
         return (
             <div className="App">
@@ -31,7 +43,7 @@ class App extends Component {
                     <h1 className="App-title">Your TODOs</h1>
                 </div>
                 <InputTodoItem addTodoItem={ this.addTodoItem.bind(this) }/>
-                <TodoList todos={ this.state.todos } />
+                <TodoList todos={ this.state.todos } removeTodoItem={ this.removeTodoItem.bind(this) }/>
             </div>
         );
     }

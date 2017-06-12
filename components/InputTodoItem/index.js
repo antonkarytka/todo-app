@@ -13,13 +13,13 @@ class InputTodoItem extends Component {
             if (this.refs.EnteredTodo.value !== '') {
                 this.props.addTodoItem(this.refs.EnteredTodo.value);
                 this.refs.EnteredTodo.value = '';
-            };
+            }
         }
     };
 
     render() {
         return (
-            <input ref="EnteredTodo" className="InputTodo" type="text" placeholder="Enter your TODO..." autoFocus onKeyPress={this.handleKeyPress} />
+            <input ref="EnteredTodo" className="InputTodo" type="text" placeholder="Enter your TODO..." autoFocus onKeyPress={ this.handleKeyPress } />
         );
     }
 }
