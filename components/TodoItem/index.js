@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import './styles.css';
+import './checkbox.scss';
 
 class TodoItem extends Component {
 
@@ -10,6 +11,7 @@ class TodoItem extends Component {
 
     render() {
         const todoText = this.props.todo.text;
+        const index = this.props.todoIndex;
         const lineThroughText = this.props.todo.lineThroughText;
         const todoCreationDate = this.props.todo.creationDate;
         const todoKeyData = this.props.todo.keyDate;
@@ -20,14 +22,27 @@ class TodoItem extends Component {
                 <li>
                     <table>
                         <tbody>
-                        <tr>
-                            <td className="todo-check"><input ref="checkTodo" type="checkbox" onClick={ () => { this.props.checkTodoItem(this.refs.checkTodo.checked, todoKeyData) } }/></td>
-                            <td className={`todo-text ${lineThroughText}`}>{ todoText }</td>
-                            <td className="todo-delete"><input type="checkbox" onClick={ () => { this.props.removeTodoItem(todoKeyData) } }/></td>
-                        </tr>
-                        <tr>
-                            <td colSpan={3} className="todo-creation-date">{ todoCreationDate }</td>
-                        </tr>
+                            <tr>
+                                <td className="todo-check">
+                                    <input type="checkbox" ref="checkTodo" id={`check-${index}`} onClick={ () => { this.props.checkTodoItem(this.refs.checkTodo.checked, todoKeyData) } } />
+                                    <label htmlFor={`check-${index}`}>
+                                        <span/>
+                                    </label>
+                                </td>
+                                <td className={`todo-text`}>
+                                    <span className={lineThroughText}>
+                                        { todoText }
+                                    </span>
+                                </td>
+                                <td className="todo-delete">
+                                    <input type="checkbox" onClick={ () => { this.props.removeTodoItem(todoKeyData) } }/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colSpan={3} className="todo-creation-date">
+                                    { todoCreationDate }
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </li>

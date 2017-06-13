@@ -33,5 +33,6 @@ hr {
 
 .line-through-text {
     text-decoration: line-through;
-    color: crimson;
+    color: #1fff00;
 }
+

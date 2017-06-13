@@ -6,11 +6,13 @@ import './styles.css';
 class TodoList extends Component {
 
     render() {
+        let todoIndex = 0;
         return (
             <ul>
                 {
                     this.props.todos.map(item => {
-                        return <TodoItem key={ item.keyDate } todo={ item } checkTodoItem={ this.props.checkTodoItem } removeTodoItem={ this.props.removeTodoItem } />
+                        todoIndex++;
+                        return <TodoItem key={ item.keyDate } todo={ item } todoIndex={todoIndex} checkTodoItem={ this.props.checkTodoItem } removeTodoItem={ this.props.removeTodoItem } />
                     })
                 }
             </ul>
