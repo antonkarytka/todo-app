@@ -1,0 +1,29 @@
+label.delete-label {
+    display: inline-block;
+    color: #ff002d;
+    cursor: pointer;
+    position: relative;
+
+    span.delete-span {
+        background-image: inherit;
+        display: inline-block;
+        position: relative;
+        background-color: transparent;
+        width: 25px;
+        height: 25px;
+        transform-origin: center;
+        border: 2px solid #ff002d;
+        border-radius: 50%;
+        vertical-align: -6px;
+        margin-right: 10px;
+
+        &:hover {
+            background-color: #ff002d;
+            content: url('delete.png');
+        }
+    }
+}
+
+input.delete {
+    display: none;
+}

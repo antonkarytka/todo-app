@@ -26,7 +26,6 @@ class App extends Component {
 
     checkTodoItem(checked, uniqueCreationDate) {
         const todos = this.state.todos;
-        console.log(uniqueCreationDate);
         if (checked) {
             todos.map(todo => {
                 if (todo.keyDate === uniqueCreationDate) {

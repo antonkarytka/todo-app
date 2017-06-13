@@ -1,10 +1,10 @@
-label {
+label.check-label {
     display: inline-block;
     color: #1fff00;
     cursor: pointer;
     position: relative;
 
-    span {
+    span.check-span {
         display: inline-block;
         position: relative;
         background-color: transparent;
@@ -19,7 +19,7 @@ label {
 
         &:before {
             content: "";
-            width: 0px;
+            width: 0;
             height: 2px;
             border-radius: 2px;
             background: #000000;
@@ -28,7 +28,7 @@ label {
             top: 13px;
             left: 9px;
             transition: width 50ms ease 50ms;
-            transform-origin: 0% 0%;
+            transform-origin: 0 0;
         }
 
         &:after {
@@ -42,12 +42,12 @@ label {
             top: 16px;
             left: 10px;
             transition: width 50ms ease;
-            transform-origin: 0% 0%;
+            transform-origin: 0 0;
         }
     }
 
     &:hover {
-        span {
+        span.check-span {
             &:before {
                 width: 5px;
                 transition: width 100ms ease;
@@ -61,12 +61,12 @@ label {
     }
 }
 
-input[type="checkbox"] {
+input.check {
     display: none;
 
     &:checked {
-        + label {
-            span {
+        + label.check-label {
+            span.check-span {
                 background-color: #000000;
                 border: 2px solid #000000;
                 transform: scale(1.25);
@@ -85,7 +85,7 @@ input[type="checkbox"] {
             }
 
             &:hover {
-                span {
+                span.check-span {
                     background-color: #000000;
                     border: 2px solid #000000;
                     transform: scale(1.25);

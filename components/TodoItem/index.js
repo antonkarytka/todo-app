@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import './styles.css';
-import './checkbox.scss';
+import './checkboxCheck.scss';
+import './checkboxDelete.scss';
 
 class TodoItem extends Component {
 
@@ -24,9 +25,9 @@ class TodoItem extends Component {
                         <tbody>
                             <tr>
                                 <td className="todo-check">
-                                    <input type="checkbox" ref="checkTodo" id={`check-${index}`} onClick={ () => { this.props.checkTodoItem(this.refs.checkTodo.checked, todoKeyData) } } />
-                                    <label htmlFor={`check-${index}`}>
-                                        <span/>
+                                    <input type="checkbox" className="check" ref="checkTodo" id={`check-${index}`} onClick={ () => { this.props.checkTodoItem(this.refs.checkTodo.checked, todoKeyData) } } />
+                                    <label className="check-label" htmlFor={`check-${index}`}>
+                                        <span className="check-span"/>
                                     </label>
                                 </td>
                                 <td className={`todo-text`}>
@@ -35,9 +36,13 @@ class TodoItem extends Component {
                                     </span>
                                 </td>
                                 <td className="todo-delete">
-                                    <input type="checkbox" onClick={ () => { this.props.removeTodoItem(todoKeyData) } }/>
+                                    <input type="checkbox" className="delete" id={`delete-${index}`} onClick={ () => { this.props.removeTodoItem(todoKeyData) } }/>
+                                    <label className="delete-label" htmlFor={`delete-${index}`}>
+                                        <span className="delete-span"/>
+                                    </label>
                                 </td>
                             </tr>
+
                             <tr>
                                 <td colSpan={3} className="todo-creation-date">
                                     { todoCreationDate }
